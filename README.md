@@ -7,8 +7,9 @@ Instantiate the object with the proper credentials
 ```
 $api=new mySWRestAPI('mycloud','swretail','password');
 ```
+and basically you are good to go.
 
-## lookup an article id when you only have a barcode
+## Lookup an article id when you only have a barcode
 ```
 print_r($api->articleIDfromBarcode(139735));
 ```
