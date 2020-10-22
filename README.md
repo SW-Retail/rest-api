@@ -30,23 +30,10 @@ and you are good to go.
 
 All examples use print_r to display the result code of the operation. 
 
-## Lookup an article id when you only have a barcode
-```php
-print_r($api->articleIDfromBarcode("1234567890123"));
-```
-
-
 ## Update article information
-This updates article_id 10 and sets the article_memo field to something
+This updates article_id 10 and sets the article_memo field to something. You can add extra article fields to update at once. 
 ```php
 $data=['article_id'=>10,'article_memo'=>'something'];
-print_r($api->putArticle($data));
-```
-
-## Update the article memo based on a barcode
-Beware -> this costs two calls, one lookup for the barcode, one update
-```php
- $data=['article_id'=>$api->articleIDfromBarcode("1234567890123"),'article_memo'=>'something'];
 print_r($api->putArticle($data));
 ```
 
@@ -80,6 +67,23 @@ Make sure the image does not exceed the size limits. This uploads an image to ar
 print_r($api->uploadArticleImage(10,"c:/directory/niceimage.jpg","my nice image description"));
 ```
 
+## Lookup an article id when you only have a barcode
+```php
+print_r($api->articleIDfromBarcode("1234567890123"));
+```
+
+## Update the article memo based on a barcode
+Beware -> this costs two calls, one lookup for the barcode, one update
+```php
+ $data=['article_id'=>$api->articleIDfromBarcode("1234567890123"),'article_memo'=>'something'];
+print_r($api->putArticle($data));
+```
+
+## Get a list of articles that have changed in the last 10 minutes: 
+Gets a list of ids so you know what articles to update
+```php
+print_r($api->getarticle_changed(1000));
+```
 # List of all endpoints 
 Use the documentation of the REST api to find all endpoints that are available
 
