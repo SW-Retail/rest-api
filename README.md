@@ -1,4 +1,4 @@
-# A simple  SW-Retail REST API PHP client
+# SW-Retail REST API PHP client
 
 This file provides a simple client for the SW-Retail REST-API in PHP. For more information about SW-Retail, visit https:/www.swretail.nl. 
 
