@@ -30,7 +30,7 @@ $data=['article_id'=>10,'article_memo'=>'something'];
 print_r($api->putArticle($data));
 ```
 
-## Update the article memo based on a barcode.
+## Update the article memo based on a barcode
 Beware -> this costs two calls, one lookup, one update
 ```php
  $data=['article_id'=>$api->articleIDfromBarcode(139735),'article_memo'=>'something'];
@@ -50,7 +50,7 @@ print_r($api->postArticle($new_article));
 ```
 
 ## Delete an article
-If it is not possible to delete the article you get an error message back. 
+Delete article id 10. If it is not possible to delete the article you get an error message back. 
  ```php
  print_r($api->deleteArticle(10));
  ```
@@ -62,9 +62,9 @@ print_r($api->getArticle_Stock(10,2,1))
 ```
 
 ## Upload an image to an article
-Make sure the image does not exceed the size limits. 
+Make sure the image does not exceed the size limits. This uploads an image to article id 10
 ```php
-print_r($api->uploadArticleImage(1,"c:/directory/image.jpg","my nice image"));
+print_r($api->uploadArticleImage(10,"c:/directory/niceimage.jpg","my nice image description"));
 ```
 
 # List of all endpoints 
