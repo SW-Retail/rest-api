@@ -1,4 +1,10 @@
-# SW-Retail rest-api examples
+# A simple  SW-Retail REST api PHP client
+
+This file provides a simple client for SW-Retail. For more information, visit https:/www.swretail.nl
+
+There is only one dependency for this to run, and that is you need to have PHP cURL. 
+
+# Examples
 
 ## Setup 
 Include the swretailapi.php file in your project
@@ -44,6 +50,7 @@ print_r($api->postArticle($new_article));
 ```
 
 ## Delete an article
+If it is not possible to delete the article you get an error message back. 
  ```php
  print_r($api->deleteArticle(10));
  ```
