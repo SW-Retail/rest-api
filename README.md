@@ -1,6 +1,6 @@
-# A simple  SW-Retail REST api PHP client
-
-This file provides a simple client for the SW-Retail REST-API. For more information, visit https:/www.swretail.nl
+# A simple  SW-Retail REST API PHP 
+client
+This file provides a simple client for the SW-Retail REST-API in PHP. For more information about SW-Retail, visit https:/www.swretail.nl
 
 There is only one dependency for this to run, and that is you need to have PHP cURL. 
 
