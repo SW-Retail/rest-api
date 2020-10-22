@@ -11,8 +11,8 @@ So, for example, in order to access the article endpoint you have four functions
 ~~~php
 getArticle($array_with_url_fields)
 deleteArticle($array_with_url_fields)
-putArticle($array_with_all_fields)     
-postArticle($array_with_all_fields)
+putArticle($array_with_put_fields)     
+postArticle($array_with_post_fields)
 ~~~
 All these functions return an array with the return state of the call to the endpoint. 
 
