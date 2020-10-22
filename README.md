@@ -11,7 +11,7 @@ Include the swretailapi.php file in your project
 
 Instantiate the object with the proper credentials
 ```php
-$api=new mySWRestAPI('mycloud','swretail','password');
+$api=new mySWRestAPI('myswretailcloudinstance','myswretailusername','myswretailpassword');
 ```
 and you are good to go.
 
