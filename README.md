@@ -82,7 +82,7 @@ print_r($api->putArticle($data));
 ## Get a list of articles that have changed in the last 10 minutes: 
 Gets a list of ids so you know what articles to update
 ```php
-print_r($api->getarticle_changed(1000));
+print_r($api->getArticle_changed(1000));
 ```
 # List of all endpoints 
 Use the documentation of the REST api to find all endpoints that are available
