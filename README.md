@@ -1,6 +1,6 @@
 # A simple  SW-Retail REST api PHP client
 
-This file provides a simple client for SW-Retail. For more information, visit https:/www.swretail.nl
+This file provides a simple client for the SW-Retail REST-API. For more information, visit https:/www.swretail.nl
 
 There is only one dependency for this to run, and that is you need to have PHP cURL. 
 
@@ -13,7 +13,7 @@ Instantiate the object with the proper credentials
 ```php
 $api=new mySWRestAPI('mycloud','swretail','password');
 ```
-and basically you are good to go.
+and you are good to go.
 
 All examples use print_r to display the result code of the operation. 
 
