@@ -9,6 +9,8 @@ $api=new mySWRestAPI('mycloud','swretail','password');
 ```
 and basically you are good to go.
 
+All examples use print_r to display the result code of the operation. 
+
 ## Lookup an article id when you only have a barcode
 ```
 print_r($api->articleIDfromBarcode(139735));
@@ -54,7 +56,7 @@ print_r($api->getArticle_Stock(10,2,1))
 
 ## Upload an image to an article
 ```
-$api->uploadArticleImage(1,"c:/directory/image.jpg","my nice image");
+print_r($api->uploadArticleImage(1,"c:/directory/image.jpg","my nice image"));
 ```
 
 # List of all endpoints 
