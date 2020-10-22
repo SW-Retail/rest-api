@@ -1,6 +1,6 @@
-# A simple  SW-Retail REST API PHP 
-client
-This file provides a simple client for the SW-Retail REST-API in PHP. For more information about SW-Retail, visit https:/www.swretail.nl
+# A simple  SW-Retail REST API PHP client
+
+This file provides a simple client for the SW-Retail REST-API in PHP. For more information about SW-Retail, visit https:/www.swretail.nl. We have kept the amount of files to an absolute minimum (1) 
 
 There is only one dependency for this to run, and that is you need to have PHP cURL. 
 
@@ -24,7 +24,7 @@ print_r($api->articleIDfromBarcode("1234567890123"));
 
 
 ## Update article information
-This u pdates article_id 10 and sets the article_memo field to something
+This updates article_id 10 and sets the article_memo field to something
 ```php
 $data=['article_id'=>10,'article_memo'=>'something'];
 print_r($api->putArticle($data));
