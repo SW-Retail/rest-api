@@ -1,5 +1,13 @@
 # SW-Retail rest-api examples
 
+## Setup 
+Include the swretailapi.php file in your project
+
+Instantiate the object with the proper credentials
+```
+$api=new mySWRestAPI('mycloud','swretail','password');
+```
+
 ## lookup an article id when you only have a barcode
 ```
 print_r($api->articleIDfromBarcode(139735));
