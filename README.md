@@ -12,7 +12,7 @@ and basically you are good to go.
 All examples use print_r to display the result code of the operation. 
 
 ## Lookup an article id when you only have a barcode
-```
+```php
 print_r($api->articleIDfromBarcode(139735));
 ```
 
