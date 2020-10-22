@@ -5,13 +5,15 @@ This file provides a simple client for the SW-Retail REST-API in PHP. For more i
 There is only one dependency for this to run, and that is you need to have PHP cURL. 
 
 # Usage
-The client supports most calls of the API via "magic" functions. The function name is basically the endpoint name, prefixed with the operation (put, get, post, delete) 
+The client supports most calls of the API via "magic" functions. The function name is the endpoint name, prefixed with the operation (put, get, post, delete) 
 
 So, for example, in order to access the article endpoint you have four functions
+~~~php
 getArticle($array_with_url_fields)
 deleteArticle($array_with_url_fields)
 putArticle($array_with_all_fields)     
 postArticle($array_with_all_fields)
+~~~
 All these functions return an array with the return state of the call to the endpoint. 
 
 
