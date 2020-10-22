@@ -1,4 +1,4 @@
-# SW-Retail rest-api examples. 
+# SW-Retail rest-api examples
 
 ## lookup an article id when you only have a barcode
 ```
