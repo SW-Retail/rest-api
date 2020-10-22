@@ -20,7 +20,7 @@ Beware -> this costs two calls, one lookup, one update
 print_r($api->putArticle($data));
 ```
 
-## Get a list of all the warehouses in the system
+## Get a list of all warehouses in the system
 ```
 print_r($api->getWarehouses());
 ```
@@ -43,7 +43,7 @@ Get the stock in warehouse 1, position 1 on the sizeruler, for article 10) with 
 print_r($api->getArticle_Stock(10,2,1))
 ```
 
-## upload an image to an article
+## Upload an image to an article
 ```
 $api->uploadArticleImage(1,"c:/directory/image.jpg","my nice image");
 ```
