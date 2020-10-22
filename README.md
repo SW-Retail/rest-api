@@ -7,12 +7,12 @@ There is only one dependency for this to run, and that is you need to have PHP c
 # Usage
 The client supports most calls of the API via "magic" functions. The function name is the endpoint name, prefixed with the operation (put, get, post, delete) 
 
-So, for example, in order to access the article endpoint you have four functions
+So, for example, in order to access the article endpoint you have four functions in the client
 ~~~php
-getArticle($array_with_url_fields)
-deleteArticle($array_with_url_fields)
-putArticle($array_with_put_fields)     
-postArticle($array_with_post_fields)
+function getArticle($array_with_url_fields)
+function deleteArticle($array_with_url_fields)
+function putArticle($array_with_put_fields)     
+function postArticle($array_with_post_fields)
 ~~~
 All these functions return an array with the return state of the call to the endpoint. 
 
@@ -44,7 +44,7 @@ print_r($api->putArticle($data));
 ```
 
 ## Update the article memo based on a barcode
-Beware -> this costs two calls, one lookup, one update
+Beware -> this costs two calls, one lookup for the barcode, one update
 ```php
  $data=['article_id'=>$api->articleIDfromBarcode("1234567890123"),'article_memo'=>'something'];
 print_r($api->putArticle($data));
