@@ -62,6 +62,7 @@ print_r($api->getArticle_Stock(10,2,1))
 ```
 
 ## Upload an image to an article
+Make sure the image does not exceed the size limits. 
 ```php
 print_r($api->uploadArticleImage(1,"c:/directory/image.jpg","my nice image"));
 ```
