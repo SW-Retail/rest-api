@@ -68,6 +68,7 @@ print_r($api->uploadArticleImage(10,"c:/directory/niceimage.jpg","my nice image 
 ```
 
 ## Lookup an article id when you only have a barcode
+This function is not a direct api function but has some extra code in the client. 
 ```php
 print_r($api->articleIDfromBarcode("1234567890123"));
 ```
