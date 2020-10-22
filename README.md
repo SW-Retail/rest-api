@@ -1,19 +1,20 @@
-# rest-api
-SW-Retail rest-api examples. 
+# SW-Retail rest-api examples. 
 
-// lookup an article id from a barcode
+## lookup an article id when you only have a barcode
 ```
 print_r($api->articleIDfromBarcode(139735));
 ```
 
 
-// update article_id 10, set the article_memo field to something
+## Update article information
+This u pdates article_id 10 and sets the article_memo field to something
 ```
 $data=['article_id'=>10,'article_memo'=>'something'];
 print_r($api->putArticle($data));
 ```
 
-// update the article memo based on a barcode. beware -> this costs two calls, one lookup, one update
+## Update the article memo based on a barcode.
+Beware -> this costs two calls, one lookup, one update
 ```
  $data=['article_id'=>$api->articleIDfromBarcode(139735),'article_memo'=>'something'];
 print_r($api->putArticle($data));
@@ -36,8 +37,8 @@ print_r($api->postArticle($new_article));
  print_r($api->deleteArticle(10));
  ```
 
-## get the stock in warehouse 1, position 1 on the sizeruler, for article 10) with a get request
-if you do not use sizerulers then the position is always 1
+## Get stock information of an article
+Get the stock in warehouse 1, position 1 on the sizeruler, for article 10) with a get request. If you do not use sizerulers then the position is always 1
 ```
 print_r($api->getArticle_Stock(10,2,1))
 ```
@@ -47,5 +48,6 @@ print_r($api->getArticle_Stock(10,2,1))
 $api->uploadArticleImage(1,"c:/directory/image.jpg","my nice image");
 ```
 
-use the documentation of the REST api to find all endpoints that are available
+# List of all endpoints 
+Use the documentation of the REST api to find all endpoints that are available
 
