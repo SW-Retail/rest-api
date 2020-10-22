@@ -2,7 +2,9 @@
 SW-Retail rest-api examples. 
 
 // lookup an article id from a barcode
+```
 print_r($api->articleIDfromBarcode(139735));
+```
 
 
 // update article_id 10, set the article_memo field to something
