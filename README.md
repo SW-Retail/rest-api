@@ -19,7 +19,7 @@ All examples use print_r to display the result code of the operation.
 
 ## Lookup an article id when you only have a barcode
 ```php
-print_r($api->articleIDfromBarcode(139735));
+print_r($api->articleIDfromBarcode("1234567890123"));
 ```
 
 
@@ -33,7 +33,7 @@ print_r($api->putArticle($data));
 ## Update the article memo based on a barcode
 Beware -> this costs two calls, one lookup, one update
 ```php
- $data=['article_id'=>$api->articleIDfromBarcode(139735),'article_memo'=>'something'];
+ $data=['article_id'=>$api->articleIDfromBarcode("1234567890123"),'article_memo'=>'something'];
 print_r($api->putArticle($data));
 ```
 
@@ -43,7 +43,7 @@ print_r($api->getWarehouses());
 ```
 
 ## Create an article
-remember to save the article_id that you'll get back!
+Remember to save the article_id that you'll get back! You can use all fields as specified in the documentation.
 ```php
 $new_article=['article_description'=>'My very own article!'];
 print_r($api->postArticle($new_article));
