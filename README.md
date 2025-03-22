@@ -24,7 +24,7 @@ All these functions return an array with the return state of the call to the end
 ## Setup 
 Include the swretailapi.php file in your project
 
-Instantiate the object with the proper credentials      (get an api key on this location:  Modules - Settings - Employees - API Keys )
+Instantiate the object with the proper credentials      (get an api key on this location:  Modules - Settings - Links - API Keys )
 ```php
 $api=new mySWRestAPI('myswretailcloudinstance','apikey');
 ```
