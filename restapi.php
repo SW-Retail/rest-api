@@ -12,7 +12,7 @@
  * Example:
  *      $api=new SWRestAPI('your-cloud-instance','apikey');
  *      $api->getVersion();
- * Make sure you setup a user with rest-api permissions in the SW-Retail configuration
+ * Make sure you setup an apikey with rest-api permissions in the SW-Retail configuration
  *
  * The api endpoints are implemented as 'magic' functions. You can call the api endpoints by prefixing what you want to do (get / post / put or delete) and then use the endpoint name (can be in capital etc..)
  * So:
