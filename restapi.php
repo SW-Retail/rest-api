@@ -2,15 +2,15 @@
 /**
  * This is a simple PHP rest-api client for connecting with the SW-Retail REST api. The only dependency there is is cURL which needs to be installed (which mostly always is).
  * We have kept it as flat and as simple as possible to get you running fast and keep integration effort low. Works in all frameworks, and since it communicates using array's it is easy to map information back / forward to your application.
- * V1.0, 01-10-2020
+ * V2.0, 22-03-2025
  * To integrate this api client in your software:
  * Include this file
  * Instantiate a SWRestAPI object
- * Provide your cloud instance name, username and password for the API
+ * Provide your cloud instance name and apikey for the API
  * and you're good to go!
  *
  * Example:
- *      $api=new SWRestAPI('your-cloud-instance','username','password');
+ *      $api=new SWRestAPI('your-cloud-instance','apikey');
  *      $api->getVersion();
  * Make sure you setup a user with rest-api permissions in the SW-Retail configuration
  *
@@ -71,8 +71,7 @@ class BasicComms
 {
 
     var $baseURL;
-    var $userName;
-    var $userPassword;
+    var $apikey;    
 
     var $verbose = false;
     var $verifyPeer = true;
@@ -105,11 +104,10 @@ class BasicComms
      * @desc setup the cloud url. Needs name of the instance
      * @param $instance
      */
-    public function setCloud($instance, $username, $password)
+    public function setCloud($instance, $apikey)
     {
         $this->baseURL = 'https://' . $instance . '.cloud.swretail.nl/swcloud/SWWService';
-        $this->userName = $username;
-        $this->userPassword = $password;
+        $this->apikey = $apikey;        
 
         $this->curl = curl_init();
     }
@@ -163,7 +161,12 @@ class BasicComms
         curl_setopt($this->curl, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($this->curl, CURLOPT_FOLLOWLOCATION, 0);
         curl_setopt($this->curl, CURLOPT_HEADER, 0);
-        curl_setopt($this->curl, CURLOPT_HTTPHEADER, ['Content-Type:application/json']);
+        
+        $headers = [
+            'X-Auth: ' . $this->apikey,
+            'Content-Type: application/json' // Add other headers if needed
+        ];
+        curl_setopt($this->curl, CURLOPT_HTTPHEADER, $headers);
 
         if ($this->verbose)
             curl_setopt($this->curl, CURLOPT_VERBOSE, 1);
@@ -171,7 +174,7 @@ class BasicComms
             curl_setopt($this->curl, CURLOPT_VERBOSE, 0);
 
         curl_setopt($this->curl, CURLOPT_SSL_VERIFYHOST, 2);
-        // your php stack needs to know the SW-Retail CA. If it doesn't, install the latest set of certificates on your system. If you can't set this parameter to 0 (this does impose a security risk, man in the middle attack)
+        // your php stack needs to know the SW-Retail CA (an updated system should). If it doesn't, install the latest set of certificates on your system. If you can't set this parameter to 0 (this does impose a security risk, man in the middle attack)
         if ($this->verifyPeer)
             curl_setopt($this->curl, CURLOPT_SSL_VERIFYPEER, 1);
         else
@@ -181,12 +184,8 @@ class BasicComms
         curl_setopt($this->curl, CURLOPT_CONNECTTIMEOUT, 30);
         curl_setopt($this->curl, CURLOPT_TIMEOUT, 30);
 
-        curl_setopt($this->curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
-        curl_setopt($this->curl, CURLOPT_USERPWD, $this->userName . ':' . $this->userPassword);
-
         return true;
     }
-
 
     /**
      * @desc get something from the endpoint
@@ -337,13 +336,12 @@ class SWRestAPI {
     /**
      * SWRestApi constructor.
      * @param $instance
-     * @param $username
-     * @param $password
+     * @param $apikey     
      */
-    function __construct ($instance,$username,$password)
+    function __construct ($instance,$apikey)
     {
         $this->BC=new BasicComms();
-        $this->BC->setCloud($instance,$username,$password);
+        $this->BC->setCloud($instance,$apikey);
     }
 
     /**
